@@ -11,6 +11,28 @@
   font-size: 15px;
   font-weight: bold;
 }
+.menu2{
+  background-color: lightgoldenrodyellow;
+  border-bottom: 2px dotted;
+  display: flex;
+  justify-content: space-between;
+}
+.menu-title1{
+  background-color: #4c4c4c;
+  height: 100%;
+  padding: 0 10px;
+}
+.menu-title2{
+  font-size: 20px;
+  color: #ffffff;
+  height: 100%;
+}
+.menu-title3{
+  margin-top: 5px;
+}
+.menu-title4{
+  padding-right: 15px;
+}
 /* リスト部分 */
 
 .contents-title{
