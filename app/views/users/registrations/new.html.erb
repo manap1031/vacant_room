@@ -67,7 +67,8 @@
       </div>
       <div class="reg-new2">
         <div class="reg4">
-        <%= f.text_field :prefectures, class: 'reg5'%>
+        <%# <%= f.text_field :prefectures, class: 'reg5'%> 
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"reg5", id:"prefecture"}) %>
         </div>
       </div>
     </div>
