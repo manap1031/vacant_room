@@ -22,6 +22,11 @@ class RoomsController < ApplicationController
   def update
   end
 
+  def search
+    @rooms = Room.search
+    # (params[:keyword])
+  end
+
   private
-  
+
 end
