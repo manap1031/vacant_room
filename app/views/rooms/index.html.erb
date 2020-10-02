@@ -1,0 +1,40 @@
+ <div class="background">
+  <div class="no">
+  </div>
+    <div class="menu">
+      <ul class="menu-list">
+        <li class="menu-list1"><a heref="#">リスト1</a></li>
+        <li class="menu-list1"><a heref="#">リスト2</a></li>
+        <li class="menu-list1"><a heref="#">リスト3</a></li>
+        <li class="menu-list1"><a heref="#">リスト4</a></li>
+        <li class="menu-list1"><a heref="#">リスト5</a></li>
+      </ul>
+    </div>
+    
+    
+  <h2 class="contents-title">ピックアップ物件</h2>
+
+  <% @rooms.each do |room| %> 
+    <div class="contents-item1">
+      <div class="contents1">
+        <ul class="contents2">
+          <li>
+            <%= link_to room_path(room.id) do %>
+              <%= image_tag room.image, class: 'room-image' if room.image.attached? %>
+            <% end %> 
+          </li> 
+        </ul>
+      </div>
+
+      <div class="contetns-item2">
+        <div class="contents3">
+          <li class="contents-list"></li>
+          <li class="contents-list"></li>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
+
