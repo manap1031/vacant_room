@@ -1,0 +1,79 @@
+/* リスト部分 */
+.menu{
+  background-color: lightgoldenrodyellow;
+  padding-bottom: 5px;
+  border-top: 2px dotted;
+  border-bottom: 2px dotted;
+}
+.menu-list{
+  display: flex;
+  justify-content: space-around;
+  font-size: 15px;
+  font-weight: bold;
+}
+.menu2{
+  background-color: lightgoldenrodyellow;
+  border-bottom: 2px dotted;
+  display: flex;
+  justify-content: space-between;
+}
+.menu-title1{
+  background-color: #4c4c4c;
+  height: 100%;
+  padding: 0 10px;
+}
+.menu-title2{
+  font-size: 20px;
+  color: #ffffff;
+  height: 100%;
+}
+.menu-title3{
+  margin-top: 5px;
+}
+.menu-title4{
+  padding-right: 15px;
+}
+/* リスト部分 */
+
+.contents-title{
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* 画像の部分 */
+.contents-item1{
+  display: flex;
+}
+.contents1{
+  background-color: darkseagreen;
+  margin: 0 0 15px 20px;
+}
+.contents2{
+  background-color: darkturquoise;
+}
+.contetns-item2{
+  background-color: deeppink;
+  margin-bottom: 15px;
+  width: 50vh;
+}
+.contents3{
+  background-color: dimgray;
+}
+.contents-list{
+  list-style: none;
+  border: 2px solid royalblue;
+}
+.room-image{
+  height: 20vh;
+  width: 25vh;
+  margin: 20px 20px;
+  min-height: 200px;
+  border: 3px solid #ccc;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+}
+/* 画像の部分 */
