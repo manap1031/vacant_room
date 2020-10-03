@@ -8,6 +8,12 @@ class RoomsController < ApplicationController
   end
 
   def create
+    @room = Room.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -29,6 +35,6 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:image, :prefectures, :postal_code, :city, :town, :building, :phone_number, :comment,:prefecture_id)
+    params.require(:room).permit(:image)
   end
 end

@@ -1,178 +1,165 @@
 <div class="background">
   <div class="no">
   </div>
-
-  <h2 class="login-title">会員登録</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
   
-  <div class="contents-new">
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
-          <span class="indispensable">必須</span>
-        </div>
-        <div class="reg3">
-          <p>お名前(全角)</p>
-        </div>
+  
+  <h2 class="login-title"><span class=login-title1>会員登録</span></h2>
+      
+    
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="reg-log">
+    <div class="reg-log1">
+      <div class="reg-log2">
+        <span class="indispensable">必須</span>
+        <p class="reg-p">お名前(全角)</p>
       </div>
-      <div class="reg-new2">
-        <div class="reg4">
+      <div class="reg-log3">
         <%= f.text_field :name, class: 'reg5'%>
-        </div>
       </div>
     </div>
-
-     <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+            
+      <div class="reg-log1">
+        <div class="reg-log2">
           <span class="indispensable">必須</span>
+          <p class="reg-p">お名前(カナ)</p>
         </div>
-        <div class="reg3">
-          <p>お名前(カナ)</p>
-        </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :name_kana, class: 'reg5'%>
+        <div class="reg-log3">
+          <%= f.text_field :name_kana, class: 'reg5'%>
         </div>
       </div>
-    </div>
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2">    
           <span class="indispensable">必須</span>
+          <p class="reg-p">生年月日</p>
         </div>
-        <div class="reg3">
-          <p>誕生日/年齢/性別</p>
+        <div class="reg-log3-2">
+          <div class="reg-log-3">
+            <%= raw sprintf(
+                  f.date_select(
+                    :birth_day,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
         </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :birth_day, class: 'reg5'%>
-        </div>
-      </div>
-    </div>
+      </div>  
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2">    
           <span class="indispensable">必須</span>
+          <p class="reg-p">性別</p>
         </div>
-        <div class="reg3">
-          <p>都道府県</p>
+        <div class="reg-log3-2">
+          <div class="reg-log-3">
+            <span class="reg-span">男</span> <%= f.radio_button :gender, "男", class: 'reg5'%>
+            <span class="reg-span">女</span> <%= f.radio_button :gender, "女", class: 'reg5'%>
+          </div>
         </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%# <%= f.text_field :prefectures, class: 'reg5'%> 
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"reg5", id:"prefecture"}) %>
-        </div>
-      </div>
-    </div>
+      </div>  
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2">  
           <span class="indispensable">必須</span>
+          <p class="reg-p">都道府県</p>
         </div>
-        <div class="reg3">
-          <p>郵便番号</p>
+        <div class="reg-log3">
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"reg5", id:"prefecture"}) %>
         </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :postal_code, class: 'reg5'%>
-        </div>
-      </div>
-    </div>
+      </div>      
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2"> 
           <span class="indispensable">必須</span>
+          <p class="reg-p">郵便番号</p>
         </div>
-        <div class="reg3">
-          <p>市区町村</p>
+        <div class="reg-log3">
+          <%= f.text_field :postal_code, class: 'reg5'%>
         </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :city, class: 'reg5'%>
-        </div>
-      </div>
-    </div>
+      </div> 
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2"> 
           <span class="indispensable">必須</span>
+          <p class="reg-p">市区町村</p>
         </div>
-        <div class="reg3">
-          <p>地域/番地</p>
+        <div class="reg-log3">
+          <%= f.text_field :city, class: 'reg5'%>
         </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :town, class: 'reg5'%>
-        </div>
-      </div>
-    </div>
+      </div> 
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
-          <%# <span class="indispensable">必須</span> %>
-        </div>
-        <div class="reg3">
-          <p>建物名</p>
-        </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :building, class: 'reg5'%>
-        </div>
-      </div>
-    </div>
-
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2"> 
           <span class="indispensable">必須</span>
+          <p class="reg-p">地域/番地</p>
         </div>
-        <div class="reg3">
-          <p>電話番号</p>
+        <div class="reg-log3">
+          <%= f.text_field :town, class: 'reg5'%>
         </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.text_field :phone_number, class: 'reg5'%>
-        </div>
-      </div>
-    </div>
+      </div> 
 
-    <div class="reg-new1">
-      <div class="reg1">
-        <div class="reg2">
+      <div class="reg-log1">
+        <div class="reg-log2"> 
+          <span class="indispensable1">任意</span>
+          <p class="reg-p">建物名</p>
+        </div>
+        <div class="reg-log3">
+          <%= f.text_field :building, class: 'reg5'%>
+        </div>
+      </div>
+
+      <div class="reg-log1">
+        <div class="reg-log2"> 
+          <span class="indispensable">任意</span>
+          <p class="reg-p">電話番号</p>
+        </div>
+        <div class="reg-log3">
+          <%= f.text_field :phone_number, class: 'reg5'%>
+        </div>
+      </div> 
+
+      <div class="reg-log1">
+        <div class="reg-log2">
           <span class="indispensable">必須</span>
+          <p class="reg-p">email</p>
         </div>
-        <div class="reg3">
-          <p>email</p>
-        </div>
-      </div>
-      <div class="reg-new2">
-        <div class="reg4">
-        <%= f.email_field :name, class: 'reg5'%>
+        <div class="reg-log3">
+          <%= f.email_field :email, class: 'reg5'%>
         </div>
       </div>
-    </div>
 
-    <div class="send-btn">
-      <%= f.submit "登録", class: 'send-btn1' %>
-    </div>
-    <% end %>
-  </div>
+      <div class="reg-log1">
+        <div class="reg-log2">
+          <span class="indispensable">必須</span>
+          <p class="reg-p">password</p>
+        </div>
+        <div class="reg-log3">
+          <%= f.password_field :password, class: 'reg5'%>
+        </div>
+      </div>
+
+      <div class="reg-log1">
+        <div class="reg-log2">
+          <span class="indispensable">必須</span>
+          <p class="reg-p">password(確認)</p>
+        </div>
+        <div class="reg-log3">
+          <%= f.password_field :password_confirmation, class: 'reg5'%>
+        </div>
+      </div>    
+
+      <div class="send-btn">
+        <%= f.submit "登録", class: 'send-btn1' %>
+      </div>
+      <% end %>
+
+   </div>
 </div>
 
