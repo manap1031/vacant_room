@@ -16,7 +16,13 @@
         <p class="menu-title2">登録中の物件数:500件</p>
       </div>
       <div class="menu-title3">
-        <%= link_to "オーナー登録", "#", class: "menu-title4"%>
+       <% if user_signed_in? %>
+          <%= link_to current_owner.name, class: "login" %>
+          <%= link_to "ログアウト", destroy_owner_session_path,method: :delete, class: "login" %>
+          <% else %>
+          <%= link_to "オーナーログイン", new_owner_session_path, class: "login"%> <span>/</span>
+          <%= link_to "オーナー登録", new_owner_registration_path, class: "menu-title4"%>
+        <% end %>
       </div>
     </div>
     
