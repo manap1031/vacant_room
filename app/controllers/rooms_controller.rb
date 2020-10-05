@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :move_to_index, except: [:index, :create, :show]
 
   def index
     @rooms = Room.all
@@ -35,6 +36,10 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:image)
+    params.require(:room).permit(:image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to user_session_path unless user_signed_in?
   end
 end

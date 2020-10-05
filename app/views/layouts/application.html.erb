@@ -10,7 +10,7 @@
   </head>
 
   <body>
-      <header>
+    <header>
         
       <div class="nav-clor">
         <div id="nav-drawer">
@@ -37,18 +37,19 @@
         </div>
       </div>
       
-        <div class="new">
-          <h1 class="title"><a href="/">vacant@room</a></h1>
-          <div class="new1">
-            <div class="new2">
-              <%= link_to "ログイン", new_user_session_path, class: "login"%>
-            </div>
-            <div class="new3">
-              <%= link_to "会員登録", new_user_registration_path, class: "login"%>
-            </div>
-          </div>
+      <div class="new">
+        <h1 class="title"><a href="/">vacant@room</a></h1>
+        <div class="new1">
+           <% if user_signed_in? %>
+              <%= link_to current_user.name, class: "login" %>
+              <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "login" %>
+              <% else %>
+               <%= link_to "ログイン", new_user_session_path, class: "login"%>
+               <%= link_to "会員登録", new_user_registration_path, class: "login"%>
+            <% end %>
         </div>
-      </header>
+      </div>
+    </header>
       
       <div class="menu">
       <ul class="menu-list">
