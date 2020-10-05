@@ -6,6 +6,17 @@ class DeviseCreateOwners < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :name,               null: false
+      t.string :name_kana,          null: false
+      t.string :birth_day,          null: false
+      t.integer :prefecture_id,     null: false
+      t.string :postal_code,        null: false
+      t.string :city,               null: false
+      t.string :town,               null: false
+      t.string :building
+      t.string :phone_number,       null: false
+      t.string :gender,             null: false
+      t.string :company,            null: false
 
       ## Recoverable
       t.string   :reset_password_token
