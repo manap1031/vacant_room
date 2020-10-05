@@ -9,13 +9,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :name,               null: false
       t.string :name_kana,          null: false
       t.string :birth_day,          null: false
-      t.integer :prefecture_id,       null: false
+      t.integer :prefecture_id,     null: false
       t.string :postal_code,        null: false
       t.string :city,               null: false
       t.string :town,               null: false
-      t.string :building,           null: false
+      t.string :building
       t.string :phone_number,       null: false
-
+      t.string :gender,             null: false
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
